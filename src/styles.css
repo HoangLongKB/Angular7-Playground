@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+.link-none:hover, .link-none:visited, .link-none:link, .link-none:active{
+    text-decoration: none !important;
+    color: black;
+}

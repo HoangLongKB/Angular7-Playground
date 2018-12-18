@@ -1,0 +1,14 @@
+
+  <a style="cursor: pointer"
+     class="link-none d-flex align-items-center list-group-item"
+     [routerLink]="[itemIndex]"
+     routerLinkActive="active">
+      <div class="mr-auto">
+          <h5 class="card-title">{{ recipe.name }}</h5>
+          <p class="card-text">{{ recipe.description }}</p>
+      </div>
+      <img [src]="recipe.imagePath"
+           alt=""
+           class="card-img-top  rounded"
+           style="max-width: 70px;">
+  </a>
