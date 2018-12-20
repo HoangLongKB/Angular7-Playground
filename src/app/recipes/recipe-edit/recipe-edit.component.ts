@@ -29,6 +29,7 @@ export class RecipeEditComponent implements OnInit {
       });
     this.formInit();
   }
+  get formIngredients() { return <FormArray>this.recipeForm.get('ingredients'); }
 
   private formInit() {
     // Init form variable
@@ -77,7 +78,9 @@ export class RecipeEditComponent implements OnInit {
       this.recipeService.updateRecipe(this.recipeID, this.recipeForm.value);
     } else {
       this.recipeService.addRecipe(this.recipeForm.value);
+
     }
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   onCancel() {

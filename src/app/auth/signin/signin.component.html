@@ -1,0 +1,23 @@
+<div class="row justify-content-center mt-3">
+    <div class="col-md-5">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" ngModel class="form-control">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" ngModel class="form-control">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-success">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

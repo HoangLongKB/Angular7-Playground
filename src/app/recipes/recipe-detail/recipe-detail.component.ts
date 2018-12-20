@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { Ingredient } from './../../shared/ingredient.model';
 import { RecipeService } from './../recipe.service';
 import { Recipe } from './../recipe.model';
@@ -15,7 +16,8 @@ export class RecipeDetailComponent implements OnInit {
   recipeID: number;
   constructor(private recipeService: RecipeService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.route.params
@@ -34,7 +36,11 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.recipeID);
-    this.router.navigate(['../'], {relativeTo: this.route});
+    if (this.authService.isAuthenticate()) {
+      this.recipeService.deleteRecipe(this.recipeID);
+      this.router.navigate(['../'], {relativeTo: this.route});
+    } else {
+      alert('Please Login to use this Feature!!!');
+    }
   }
 }
